@@ -37,6 +37,12 @@ npm run build
 
 Validation covers mesh buffers, names and concept membership, nonoverlapping exploded layouts at desktop and mobile aspect ratios, search and inspection contracts, and tap-versus-drag handling. Browser interaction checks have exercised selection, system controls, search, isolation, rotation, and 390×844, 320×568, and 844×390 layouts. Phone controls stay clear of the exploded inventory, and isolated structures fit the space above or beside the detail panel. Physical-device performance and real multitouch hardware have not been tested.
 
+## Adding a language
+
+English is built in, and Simplified Chinese ships in `app/languages/zh.ts`. Each language is one self-contained file in a folder that is scanned automatically, so adding one needs no registry or app-code change.
+
+To add a language: copy `app/languages/zh.ts` to `app/languages/<code>.ts` (e.g. `ja.ts`), update the `meta` export (unique `code`, `label`, `nativeName`, `htmlLang`, `title`, `description`), and translate the values in `copy` (interface text) and `structure` (structure names — each row's comment carries the canonical English name). Keys and structure ids must stay unchanged; anything untranslated falls back to English. The file is picked up on the next load; run `npm run check` to verify.
+
 ## Anatomy data
 
 The current viewer uses **BodyParts3D 4.0**, an adult male reference anatomy, licensed **CC BY 4.0**. It does not represent every human structure or variation. Individual source meshes are distinct from named concepts, which may group multiple meshes. Descriptions distinguish general system context from individual organ explanations.
